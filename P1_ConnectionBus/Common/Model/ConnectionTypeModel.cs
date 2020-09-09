@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common
+namespace Common.Model
 {
-    class ConnectionType
+    class ConnectionTypeModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public ConnectionType() { }
+        public ConnectionTypeModel() { }
 
-        public ConnectionType(int id, string name)
+        public ConnectionTypeModel(int id, string name)
         {
             Id = id;
             Name = name;

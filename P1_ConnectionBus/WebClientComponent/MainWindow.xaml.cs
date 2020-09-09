@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Common;
+using Common.Model;
+using Newtonsoft.Json;
 
 namespace WebClientComponent
 {
@@ -27,7 +30,10 @@ namespace WebClientComponent
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Validations.UrlValid(requestTextBox.Text);
+            JSONRequestModel JSONRequest = JSONRequestGenerator.StringToJSON(requestTextBox.Text);
+            string json = JsonConvert.SerializeObject(JSONRequest, Formatting.Indented);
+            outLabel.Content = json;
         }
     }
 }
