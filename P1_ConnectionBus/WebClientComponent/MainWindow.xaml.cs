@@ -13,8 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Common;
+using Common.JSONToXMLAdapter;
+using Common.Helper;
 using Common.Model;
+using Common.JSONToXMLAdapter;
 using Newtonsoft.Json;
+using System.Xml.Linq;
+using Common.XMLToDBAdapter;
 
 namespace WebClientComponent
 {
@@ -30,10 +35,25 @@ namespace WebClientComponent
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Validations.UrlValid(requestTextBox.Text);
+
+            if (!Validations.UrlValid(requestTextBox.Text))
+            {
+                MessageBox.Show("Pls enter valid request.");
+                return;
+            }
             JSONRequestModel JSONRequest = JSONRequestGenerator.StringToJSON(requestTextBox.Text);
             string json = JsonConvert.SerializeObject(JSONRequest, Formatting.Indented);
-            outLabel.Content = json;
+            jsonLabel.Content = json;
+
+            XNode xmlNode = JSONToXML.JSONToXMLGenerator(json);
+            xmlNode.Document.Element("Verb");
+            XElement element = xmlNode.Document.Element("JSONRequestModel");
+            xmlLabel.Content = element.Element("Verb").Value;
+
+            xmlLabel.Content = XMLToDBAdapter.XMLToSql(xmlNode);
+
+
+            //outLabel.Content;
         }
     }
 }

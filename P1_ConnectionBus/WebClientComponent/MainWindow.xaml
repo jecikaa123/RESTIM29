@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebClientComponent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="418.943" Width="485.463">
+        Title="MainWindow" Height="800" Width="1000">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="193,79,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name ="requestTextBox" HorizontalAlignment="Left" Height="23" Margin="83,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
-        <Label x:Name ="outLabel" Content="" HorizontalAlignment="Left" Margin="83,230,0,0" VerticalAlignment="Top" Width="294"/>
+        <Button Content="Button" HorizontalAlignment="Center" Margin="193,79,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox x:Name ="requestTextBox" HorizontalAlignment="Center" Height="23" Margin="83,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
+        <Label x:Name ="outLabel" Content="" HorizontalAlignment="Center" Margin="390,176,308,0" VerticalAlignment="Top" Width="294" RenderTransformOrigin="0.508,-1.517"/>
+        <Label x:Name ="xmlLabel" Content="" HorizontalAlignment="Center" Margin="44,315,20,0" VerticalAlignment="Top" Width="928" RenderTransformOrigin="0.5,2.393"/>
+        <Label x:Name ="jsonLabel" Content="" HorizontalAlignment="Center" Margin="390,435,308,0" VerticalAlignment="Top" Width="294" RenderTransformOrigin="0.5,2.393"/>
 
     </Grid>
 </Window>
